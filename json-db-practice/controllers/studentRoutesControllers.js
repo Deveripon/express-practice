@@ -1,5 +1,7 @@
 import { sendVerificationEmail } from "../email/verificationEmail.js";
 import sendSms from "bulkmessage";
+import fs from "fs";
+import { getDataFromJsonDB } from "../utils/databaseOperation.js";
 
 //get all student
 export const getAllStudent = (req, res) => {
@@ -12,8 +14,8 @@ export const getAllStudent = (req, res) => {
 //create a new student
 export const createStudent = (req, res) => {
     res.status(200).send(req.body);
-    sendVerificationEmail(req, res);
-    sendSms("rcvhoqrAmkxEWrfyYIKQ", "8809617612985", req.body.cell, "this is testing message");
+    /* sendVerificationEmail(req, res); */
+    /* sendSms("rcvhoqrAmkxEWrfyYIKQ", "8809617612985", req.body.cell, "this is testing message"); */
 };
 
 //update student information
