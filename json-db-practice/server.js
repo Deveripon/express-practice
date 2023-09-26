@@ -3,6 +3,9 @@ import express from "express";
 import colors from "colors";
 import dotenv from "dotenv";
 import path from "path";
+import publicRouter from "./routes/publicRoutes.js";
+import studentRouter from "./routes/studentRoutes.js";
+import multer from "multer";
 
 dotenv.config();
 
@@ -16,6 +19,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.resolve("public")));
 
 //<!-- ==========  Start From Here ========== -->//
+
+app.use(publicRouter);
+app.use("/students", studentRouter);
 //<!-- ==========  End From Here ========== -->//
 
 //404 error handler
