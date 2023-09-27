@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+}
+ul,
+li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: rgb(235, 234, 237);
+}
+th,
+td {
+    max-width: 280px;
+    min-width: 30px;
+}
+input,
+select {
+    width: 400px !important;
+}

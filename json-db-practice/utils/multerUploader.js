@@ -2,13 +2,13 @@ import multer from "multer";
 import path from "path";
 
 const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        if (file.fieldname === "photo") {
-            cb(null, path.resolve("public/students/photo"));
-        } else {
-            cb(new Error("Invalid file type"), false);
-        }
-    },
+    // destination: (req, file, cb) => {
+    //     if (file.fieldname === "photo") {
+    //         cb(null, path.resolve("public/students/photo"));
+    //     } else {
+    //         cb(new Error("Invalid file type"), false);
+    //     }
+    // },
     filename: (req, file, cb) => {
         const extname = path.extname(file.originalname);
         const name =
@@ -37,4 +37,4 @@ export const studentPhotoUpload = multer({
     limits: {
         fileSize: 1000000,
     },
-}).single("photo");
+}).array("photos", 10);

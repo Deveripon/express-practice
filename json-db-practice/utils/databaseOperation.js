@@ -1,10 +1,10 @@
 import fs from "fs";
 import path from "path";
 export const getDataFromJsonDB = (filePath) => {
-    return fs.readFile(path.resolve(filePath), "utf8", (err, data) => {
+    const data = fs.readFile(path.resolve(filePath), "utf8", (err, data) => {
         if (err) throw err;
-        return data;
     });
+    return JSON.parse(data);
 };
 
 export const setDataToJsonDB = (filePath, data) => {

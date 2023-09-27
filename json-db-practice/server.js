@@ -6,6 +6,8 @@ import path from "path";
 import publicRouter from "./routes/publicRoutes.js";
 import studentRouter from "./routes/studentRoutes.js";
 import multer from "multer";
+import productRouter from "./routes/productRoutes.js";
+import expressLayouts from "express-ejs-layouts";
 
 dotenv.config();
 
@@ -18,10 +20,15 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.resolve("public")));
 
+//ejs setup
+app.set("view engine", "ejs");
+app.use(expressLayouts);
 //<!-- ==========  Start From Here ========== -->//
 
 app.use(publicRouter);
 app.use("/students", studentRouter);
+app.use("/products", productRouter);
+
 //<!-- ==========  End From Here ========== -->//
 
 //404 error handler
@@ -31,6 +38,7 @@ app.use((req, res, next) => {
         message: "Page not found",
     });
 });
+
 //error handler
 app.use((err, req, res, next) => {
     if (err.message) {
