@@ -6,3 +6,9 @@ export const showAllProductPage = (req, res) => {
 export const showProductAddPage = (req, res) => {
     res.render("createProduct");
 };
+export const showSingleProductPage = (req, res) => {
+    res.render("singleProduct");
+};
+export const showProductEditPage = (req, res) => {
+    res.render("editProduct");
+};
